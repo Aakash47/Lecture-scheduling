@@ -1,0 +1,24 @@
+{% extends "main.html" %}
+{% block body %}
+    <h1>My Assigned Lectures</h1>
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Course</th>
+            <th scope="col">Instructor</th>
+            <th scope="col">Date</th>
+          </tr>
+        </thead>
+        <tbody>
+        {% for lecture in lectures %}
+          <tr>   
+            <th scope="row">{{ forloop.counter }}</th>
+            <td>{{ lecture.course.name }}</td>
+            <td>{{ lecture.instructor.name }}</td>
+            <td>{{ lecture.date }}</td>
+          </tr>
+        {% endfor %}
+        </tbody>
+      </table>
+{% endblock %}

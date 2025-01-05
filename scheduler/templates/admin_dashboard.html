@@ -1,0 +1,39 @@
+{% extends "main.html" %}
+{% block body %}
+<h2>Instructors</h2>
+<ul class="list-group">
+    {% for instructor in instructors %}
+    <li class="list-group-item">{{ instructor.name }}</li>
+    {% endfor %}
+</ul>
+
+<h2>Courses</h2>
+<ul class="list-group">
+    {% for course in courses %}
+    <li class="list-group-item">{{ course.name }} - {{ course.level }}</li>
+    {% endfor %}
+</ul>
+
+<h2>Scheduled Lectures</h2>
+
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Course</th>
+        <th scope="col">Instructor</th>
+        <th scope="col">Date</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for lecture in lectures %}
+      <tr>   
+        <th scope="row">{{ forloop.counter }}</th>
+        <td>{{ lecture.course.name }}</td>
+        <td>{{ lecture.instructor.name }}</td>
+        <td>{{ lecture.date }}</td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}
